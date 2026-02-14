@@ -12,9 +12,13 @@ let computerNum = 0;
 let playButton = document.getElementById("play-button");
 let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
+let resetButton = document.getElementById("reset-button");
+let chances = 5;
+let gameOver = false;
+let chancesArea = document.getElementById("chances-area");
 
 playButton.addEventListener("click", play);
-
+resetButton.addEventListener("click", reset);
 
 
 function pickRandomNum() {
@@ -22,8 +26,27 @@ function pickRandomNum() {
     console.log("정답", computerNum)
 }
 
+userInput.addEventListener("keydown", function (event) {
+  // 눌린 키가 'Enter'인지 확인
+  if (event.key === "Enter") {
+    // 'Enter'라면 play 함수를 실행!
+    play();
+    // (선택사항) 입력창을 비워주면 다음 입력을 하기 편해요.
+    userInput.value = ""; 
+  }
+});
+
 function play() {
     let userValue = userInput.value;
+    
+    if (userValue < 1 || userValue > 100) {
+        resultArea.textContent = "1과 100 사이의 숫자를 입력해주세요.";
+        return;
+    }
+    chances--;
+    chancesArea.textContent = `남은 찬스 : ${chances}`;
+    console.log("남은 기회", chances);
+
     console.log(userValue);
     if (userValue < computerNum) {
         resultArea.innerHTML = "UP!!!";
@@ -33,7 +56,20 @@ function play() {
     }else {
         resultArea.innerHTML = "정답입니다!";
     }
+    if (chances < 1) {
+        gameOver = true;
+    }
+    if (gameOver == true) {
+        playButton.disabled = true;
+    }
 }
 
-
+function reset() {
+    // userinput창이 깨끗이 정리되고
+    userInput.value = "";
+    // 새로운 번호가 생성되고
+    pickRandomNum();
+    // 결과창이 초기화된다
+    resultArea.textContent = "과연 결과가 뭘까??";
+}
 pickRandomNum()
