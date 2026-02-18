@@ -78,7 +78,7 @@ function play() {
 }
 
 function reset() {
-    // userinput창이 깨끗이 정리되고
+    // 입력창이 깨끗이 정리되고
     userInput.value = "";
     // 새로운 번호가 생성되고
     pickRandomNum();
