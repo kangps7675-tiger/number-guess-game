@@ -20,8 +20,8 @@ body {
 
 .hint {
     font-size: 8px;
-    color: #888;
-    opacity: 0.8;
+    color: #d1d1d1;
+    opacity: 0.04;
     display: block;
     margin-top: 3px;
     letter-spacing: 0.5px;

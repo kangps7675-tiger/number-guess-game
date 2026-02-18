@@ -96,3 +96,10 @@ function reset() {
 }
 pickRandomNum()
 
+function pickRandomNum() {
+    computerNum = Math.floor(Math.random()*100)+1;
+    console.log("정답", computerNum);
+    document.getElementById("hint-answer").textContent = computerNum;  // 이 줄 추가
+}
+
+pickRandomNum();
