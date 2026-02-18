@@ -47,7 +47,7 @@ function play() {
         return;
     }
 
-    if(history.includes(userValue)) {
+    if(history.includes(Number(userValue))) {
         resultArea.textContent = "이미 입력한 숫자입니다. 다른 숫자를 입력해주세요.";
         return;
     }
@@ -66,8 +66,8 @@ function play() {
         gameOver = true;
     }
 
-    history.push(userValue);
-    console.log(histiory);
+    history.push(Number(userValue));
+    console.log(history);
 
     if (chances < 1) {
         gameOver = true;
@@ -84,5 +84,14 @@ function reset() {
     pickRandomNum();
     // 결과창이 초기화된다
     resultArea.textContent = "과연 결과가 뭘까??";
+    // 기회 초기화
+    chances = 5;
+    chancesArea.textContent = `남은 찬스 : ${chances}`;
+    // 게임 상태 초기화
+    gameOver = false;
+    // 버튼 활성화
+    playButton.disabled = false;
+    // 입력 기록 초기화
+    history = [];
 }
 pickRandomNum()
