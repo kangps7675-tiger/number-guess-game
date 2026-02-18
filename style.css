@@ -18,6 +18,12 @@ body {
   background-color: #f4f4f4;
 }
 
+.hint {
+    font-size: 8px;
+    color: #ccc;
+    opacity: 0.3;
+}
+
 h1, #result-area, #chance-area, #user-input, #play-button, #reset-button {
     margin: 10px 0; 
 }

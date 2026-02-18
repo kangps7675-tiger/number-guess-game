@@ -57,12 +57,12 @@ function play() {
 
     console.log(userValue);
     if (userValue < computerNum) {
-        resultArea.innerHTML = "UP!!!";
+        resultArea.innerHTML = "UP!!!<span class='hint'>정답: ${computerNum}</span>";
         console.log("UP!!!");
     }else if (userValue > computerNum) {
-        resultArea.innerHTML = "DOWN!!!";
+        resultArea.innerHTML = "DOWN!!!<span class='hint'>정답: ${computerNum}</span>";
     }else {
-        resultArea.innerHTML = "정답입니다!";
+        resultArea.innerHTML = "정답입니다!<span class='hint'>정답: ${computerNum}</span>";
         gameOver = true;
     }
 
@@ -95,3 +95,4 @@ function reset() {
     history = [];
 }
 pickRandomNum()
+
