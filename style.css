@@ -20,8 +20,11 @@ body {
 
 .hint {
     font-size: 8px;
-    color: #ccc;
-    opacity: 0.3;
+    color: #888;
+    opacity: 0.8;
+    display: block;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
 }
 
 h1, #result-area, #chance-area, #user-input, #play-button, #reset-button {
